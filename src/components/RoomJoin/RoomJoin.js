@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 export default function RoomJoin() {
   const [NAME, setName] = useState("");
-  const [ROOM, setRoom] = useState("");
+  // const [ROOM, setRoom] = useState("");
 
   return (
     <div className="Outer">
@@ -18,19 +18,23 @@ export default function RoomJoin() {
           />
         </div>
         <div>
-          <input
+          {/* <input
             placeholder="Room"
             className="joinInput mt-20"
             type="text"
             onChange={(event) => setRoom(event.target.value)}
-          />
+          /> */}
         </div>
         <Link
-          onClick={(e) => (!NAME || !ROOM ? e.preventDefault() : null)}
-          to={`/chat?name=${NAME}&room=${ROOM}`}
+          onClick={(e) => (!NAME ? e.preventDefault() : null)}
+          to={`/chat?name=${NAME}`}
         >
-          <button className={"button mt-20"} type="submit">
-            Sign In
+          <button
+            className={"button mt-20"}
+            onClick={(e) => e.preventDefault}
+            type="submit"
+          >
+            Welcome
           </button>
         </Link>
       </div>
